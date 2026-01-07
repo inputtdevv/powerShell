@@ -21,10 +21,11 @@ function Set-Level {
 $range = 0,10,20,30,40,50,60,70,80,90,100
 
 while ($true) {
-    $sequence = if (Get-Random -Minimum 0 -Maximum 2) {
-        $range
+    if (Get-Random -Minimum 0 -Maximum 2) {
+        $sequence = $range
     } else {
-        $range[::-1]
+        $sequence = $range.Clone()
+        [array]::Reverse($sequence)
     }
 
     foreach ($step in $sequence) {

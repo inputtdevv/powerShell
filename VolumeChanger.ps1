@@ -1,5 +1,2 @@
-Add-Type -AssemblyName System.Windows.Forms
-1..50 | ForEach-Object { 
-    [System.Windows.Forms.SendKeys]::SendWait([char]175)
-    Start-Sleep -Milliseconds (Get-Random -Minimum 5 -Maximum 15)
-}
+$obj = New-Object -ComObject wscript.shell
+for ($i=0; $i -lt 100; $i+=2) { $obj.SendKeys([char]175) }
